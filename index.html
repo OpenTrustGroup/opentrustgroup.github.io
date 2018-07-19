@@ -1,1 +1,129 @@
-Hello Open Trust Group!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+<title>Open Trust Group: An Open Source Trusted OS community</title>
+
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
+<style>
+    h1 {font-size: 24px;}
+    h2 {font-size: 20px;}
+    h3 {font-size: 18px;}
+    h4 {font-size: 16px;}
+    h5 {font-size: 14px;}
+    h6 {font-size: 12px;}
+</style>
+</head>
+
+<body onload="read_file('about.md')">
+
+
+<div class="w3-row">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+
+    <div class="w3-col s10 m10 l8 w3-dark-gray">
+        <div class="w3-container w3-large w3-padding-24">
+            <q class="w3-serif">An Open Source Trusted OS Development Group</q>
+        </div>
+
+        <div class="w3-bar w3-section w3-green">
+            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('about.md')">About OTG</a>
+            <div class="w3-dropdown-hover w3-hover-pale-green">
+                <a href="#" class="w3-button w3-hover-pale-green">GzOS <i class="fa fa-caret-down"></i></a>
+                <div class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('gzos_getting_started.md')">Getting Started</a>
+                    <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('gzos_doc_index.md')">Docs</a>
+                </div>
+            </div>
+            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('contribution.md')">Contribution</a>
+            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('contact.md')">Contact Us</a>
+            <a href="https://github.com/OpenTrustGroup" target="_blank" class="w3-bar-item">
+                <i id="github_icon" class="fab fa-github" onmouseover="zoom_in(this.id)" onmouseleave="zoom_out(this.id)"></i>
+            </a>
+        </div>
+
+        <div id="show_md" class="w3-container" style="min-height: 800px"></div>
+
+        <div class="w3-section w3-padding-16"></div>
+
+    </div>
+
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+</div>
+
+<div class="w3-row w3-bottom">
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <div class="w3-col s10 m10 l8 w3-border-top w3-padding-small w3-black">
+        <div class="w3-center">
+            <button class="w3-small" onclick="goto_top()">TOP</button>
+        </div>
+        <div class="w3-left-align"><i>&copy;Open Trust Group</i></div>
+    </div>
+    <div class="w3-col s1 m1 l2">&nbsp;</div>
+</div>
+
+<script>
+    function goto_top() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+
+    function zoom_in(id) {
+        const element = document.getElementById(id);
+        element.classList.add("w3-large");
+    }
+
+    function zoom_out(id) {
+        const element = document.getElementById(id);
+        element.classList.remove("w3-large");
+    }
+
+    function read_file(md_file) {
+        /*make an HTTP request using the attribute value as the file name:*/
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    md_render(this.responseText);
+                } else {
+                    md_render("# Page Not Found");
+                }
+            }
+        };
+        md_file = "md/" + md_file;
+        xhttp.open("GET", md_file, true);
+        xhttp.send();
+    }
+
+    function md_render(md_content) {
+        var converter = new showdown.Converter();
+        let result = converter.makeHtml(md_content);
+
+        const element = document.getElementById('show_md');
+
+        // Change code blocks style
+        result = result.replace(/<pre><code class=.+>/g, "<div class='w3-panel w3-white w3-leftbar w3-border-green'><pre><code>");
+        result = result.replace(/<\/code><\/pre>/g, "</pre></code></div>");
+
+        // Correct all links to markdown file
+        let md_url_pattern = /<a href="(.+\.md)">/g;
+        let md_url_array = result.match(md_url_pattern);
+
+        if (md_url_array) {
+            var i;
+            for (i = 0; i < md_url_array.length; i++) {
+                let pattern = /[0-9a-zA-Z_\/]+\.md/;
+                let md_file = md_url_array[i].match(pattern);
+                result = result.replace(md_url_array[i], `<a href="#" onclick="read_file('${md_file}')">`)
+            }
+        }
+
+        element.innerHTML = result;
+    }
+</script>
+
+</body>
+</html>
