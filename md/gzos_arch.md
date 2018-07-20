@@ -1,3 +1,0 @@
-# GzOS System Architecture
-
-## TBD

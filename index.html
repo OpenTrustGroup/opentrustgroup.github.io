@@ -5,123 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-<title>Open Trust Group: An Open Source Trusted OS community</title>
+<title>Open Trust Group</title>
 
 <script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js"></script>
 <style>
-    h1 {font-size: 24px;}
-    h2 {font-size: 20px;}
-    h3 {font-size: 18px;}
-    h4 {font-size: 16px;}
-    h5 {font-size: 14px;}
-    h6 {font-size: 12px;}
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+    body, html {
+        height: 50%;
+        color: #777;
+        line-height: 1.8;
+    }
 </style>
 </head>
 
-<body onload="read_file('about.md')">
+<body>
 
 
-<div class="w3-row">
-    <div class="w3-col s1 m1 l2">&nbsp;</div>
-
-    <div class="w3-col s10 m10 l8 w3-dark-gray">
-        <div class="w3-container w3-large w3-padding-24">
-            <q class="w3-serif">An Open Source Trusted OS Development Group</q>
-        </div>
-
-        <div class="w3-bar w3-section w3-green">
-            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('about.md')">About OTG</a>
-            <div class="w3-dropdown-hover w3-hover-pale-green">
-                <a href="#" class="w3-button w3-hover-pale-green">GzOS <i class="fa fa-caret-down"></i></a>
-                <div class="w3-dropdown-content w3-bar-block w3-card-4">
-                    <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('gzos_getting_started.md')">Getting Started</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('gzos_doc_index.md')">Docs</a>
-                </div>
-            </div>
-            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('contribution.md')">Contribution</a>
-            <a href="#" class="w3-bar-item w3-button w3-hover-pale-green" onclick="read_file('contact.md')">Contact Us</a>
-            <a href="https://github.com/OpenTrustGroup" target="_blank" class="w3-bar-item">
-                <i id="github_icon" class="fab fa-github" onmouseover="zoom_in(this.id)" onmouseleave="zoom_out(this.id)"></i>
-            </a>
-        </div>
-
-        <div id="show_md" class="w3-container" style="min-height: 800px"></div>
-
-        <div class="w3-section w3-padding-16"></div>
-
+<div class="w3-top">
+    <!-- for desktop -->
+    <div class="w3-bar w3-green">
+        <a href="#home" class="w3-bar-item w3-button w3-hover-black"><i class="fas fa-home"></i> HOME</a>
+        <!-- Temp. Disabled
+        <a href="#about" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-user"></i> ABOUT</a>
+        <a href="#gzos" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-lock"></i> GzOS</a>
+        <a href="#contribute" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-code-branch"></i> CONTRIBUTION</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-envelope"></i> CONTACT</a>
+        -->
+        <a href="https://github.com/OpenTrustGroup" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fab fa-github"></i></a>
+        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggle_drop_down_menu()" title="Toggle Navigation Menu">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
 
-    <div class="w3-col s1 m1 l2">&nbsp;</div>
+    <!-- for mobile -->
+    <div id="drop_down_menu" class="w3-bar-block w3-green w3-hide w3-hide-large w3-hide-medium">
+        <!-- Temp. Disabled
+        <a href="#about" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-user"></i> ABOUT</a>
+        <a href="#gzos" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-lock"></i> GzOS</a>
+        <a href="#contribute" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-code-branch"></i> CONTRIBUTION</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-envelope"></i> CONTACT</a>
+        -->
+        <a href="https://github.com/OpenTrustGroup" class="w3-bar-item w3-button w3-hover-black"><i class="fab fa-github"> GITHUB</i></a>
+    </div>
 </div>
 
-<div class="w3-row w3-bottom">
-    <div class="w3-col s1 m1 l2">&nbsp;</div>
-    <div class="w3-col s10 m10 l8 w3-border-top w3-padding-small w3-black">
-        <div class="w3-center">
-            <button class="w3-small" onclick="goto_top()">TOP</button>
-        </div>
-        <div class="w3-left-align"><i>&copy;Open Trust Group</i></div>
-    </div>
-    <div class="w3-col s1 m1 l2">&nbsp;</div>
+<!-- Container (Home & Logo Section) -->
+<div class="w3-content w3-container w3-padding-64" id="home">
+    <h3 class="w3-xlarge w3-animate-opacity">
+        "An Open Source Trusted OS Development Group"
+    </h3>
 </div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container" id="about">
+    <h3 class="">About Open Trust Group</h3>
+    <p>
+        This is an open source software development group, founded in Jan 1, 2018,
+        which focuses on trusted OS development.
+    </p>
+</div>
+
+<!-- Container (GzOS Section) -->
+<div class="w3-content w3-container w3-padding-64" id="gzos">
+    <h3 class="">GzOS : Microkernel-Based Trusted OS</h3>
+    <div class="">
+        <p>
+            <a class="w3-btn w3-black w3-round-large w3-hover-green" href="https://github.com/OpenTrustGroup/docs/blob/master/gzos/getting_started.md">Getting Started</a>
+            &nbsp;&nbsp;
+            <a class="w3-btn w3-black w3-round-large w3-hover-green" href="https://github.com/OpenTrustGroup/docs">Documentation</a>
+        </p>
+    </div>
+</div>
+
+<!-- Container (Contribution Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contribute">
+    <h3 class="">Contributing Patches to GzOS</h3>
+    <p>For now, GzOS project is in very early development stage and is still not ready for accepting patches regarding new features
+    or major changes from new contributors.</p>
+
+    <p>If you would like to report issue to us, please report issues on corresponding git projects of
+    <a href="https://github.com/OpenTrustGroup">OTG Github</a>, thank you.</p>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+    <h3 class="">CONTACT US</h3>
+    <p class="">If you are interested in our project and would like to talk to us, please mail
+        to <strong>opentrust.tw@gmail.com</strong></p>
+</div>
+
+<!-- Footer -->
+<footer class="w3-black w3-padding-small w3-center">
+    <i>&copy; 2018 Open Trust Group</i>
+    <span class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></span>
+</footer>
 
 <script>
-    function goto_top() {
-        document.body.scrollTop = 0; // For Safari
-        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-
-    function zoom_in(id) {
-        const element = document.getElementById(id);
-        element.classList.add("w3-large");
-    }
-
-    function zoom_out(id) {
-        const element = document.getElementById(id);
-        element.classList.remove("w3-large");
-    }
-
-    function read_file(md_file) {
-        /*make an HTTP request using the attribute value as the file name:*/
-        const xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-            if (this.readyState === 4) {
-                if (this.status === 200) {
-                    md_render(this.responseText);
-                } else {
-                    md_render("# Page Not Found");
-                }
-            }
-        };
-        md_file = "md/" + md_file;
-        xhttp.open("GET", md_file, true);
-        xhttp.send();
-    }
-
-    function md_render(md_content) {
-        var converter = new showdown.Converter();
-        let result = converter.makeHtml(md_content);
-
-        const element = document.getElementById('show_md');
-
-        // Change code blocks style
-        result = result.replace(/<pre><code class=.+>/g, "<div class='w3-panel w3-white w3-leftbar w3-border-green'><pre><code>");
-        result = result.replace(/<\/code><\/pre>/g, "</pre></code></div>");
-
-        // Correct all links to markdown file
-        let md_url_pattern = /<a href="(.+\.md)">/g;
-        let md_url_array = result.match(md_url_pattern);
-
-        if (md_url_array) {
-            var i;
-            for (i = 0; i < md_url_array.length; i++) {
-                let pattern = /[0-9a-zA-Z_\/]+\.md/;
-                let md_file = md_url_array[i].match(pattern);
-                result = result.replace(md_url_array[i], `<a href="#" onclick="read_file('${md_file}')">`)
-            }
+    function toggle_drop_down_menu() {
+        var x = document.getElementById("drop_down_menu");
+        if (x.className.indexOf("w3-show") === -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
         }
-
-        element.innerHTML = result;
     }
 </script>
 
