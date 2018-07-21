@@ -14,15 +14,15 @@
     body, html {
         height: 50%;
         color: #777;
-        line-height: 1.8;
+        line-height: 1.5;
     }
 
     .w3-myfont {
         font-family: 'Nanum Pen Script', cursive;
     }
 
-    div.w3-content p {
-        font-size: 20px;
+    div.w3-content p, li {
+        font-size: 16px;
     }
 </style>
 </head>
@@ -69,7 +69,7 @@
 
 <!-- Container (GzOS Section) -->
 <div class="w3-content w3-container" id="gzos">
-    <h3 class="w3-xxlarge">GzOS : Microkernel-Based Trusted OS</h3>
+    <h3 class="w3-xlarge">GzOS : Microkernel-Based Trusted OS</h3>
     <div class="">
         <p>
             <a class="w3-btn w3-black w3-round-large w3-hover-green" href="https://github.com/OpenTrustGroup/docs/blob/master/gzos/getting_started.md">Getting Started</a>
@@ -80,57 +80,68 @@
 </div>
 
 <!-- GzOS demo pictures -->
-<div class="w3-content w3-cell-row w3-padding-32">
-    <div class="w3-container w3-cell">
-        <img src="img/gzos_qemu.gif" style="width:100%;cursor:pointer"
-             onclick="onClick(this)" class="w3-hover-opacity">
+<div class="w3-content w3-padding-32">
+    <div class="w3-container">
+        <span>Run dual system on QEMU</span><br/>
+        <img src="img/gzos_qemu.gif" style="width:100%">
     </div>
-    <div class="w3-container w3-cell">
-        <img src="img/gzos_test.gif" style="width:100%;cursor:pointer"
-             onclick="onClick(this)" class="w3-hover-opacity">
-    </div>
-</div>
-
-<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
-    <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
-    <div class="w3-container w3-center w3-animate-zoom">
-        <img id="img01" style="max-width:100%; max-height:100%">
+    <br/>
+    <div class="w3-container">
+        <span>Run CI test</span><br/>
+        <img src="img/gzos_test.gif" style="width:70%">
     </div>
 </div>
-
-<script>
-    function onClick(element) {
-        document.getElementById("img01").src = element.src;
-        document.getElementById("modal01").style.display = "block";
-    }
-</script>
-
-
 
 <!-- Container (Contribution Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contribute">
-    <h3 class="w3-xxlarge">Contributing Patches to GzOS</h3>
+<div class="w3-content w3-container w3-padding-64 w3-justify" id="contribute">
+    <h3 class="w3-xlarge">Contributing Patches to GzOS</h3>
     <p>For now, GzOS project is in very early development stage and is still not ready for accepting patches regarding new features
     or major changes from new contributors.</p>
 
-    <p>If you would like to report issue to us, please open an issue on corresponding git projects via
+    <p>If you would like to report issue to us, please open new issue on corresponding git project via
     <a href="https://github.com/OpenTrustGroup">OTG Github</a>, thank you.</p>
 
     <p><b>NOTE:</b> The code in OTG Github is READ-ONLY, please do not submit pull request to OTG Github</p>
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-    <h3 class="w3-xxlarge">Contact Us</h3>
+<div class="w3-content w3-container w3-padding-32 w3-justify" id="contact">
+    <h3 class="w3-xlarge">Contact Us</h3>
     <p>If you are interested in our project and would like to talk to us, please mail
         to <b>opentrust.tw@gmail.com</b></p>
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-    <h3 class="w3-xxlarge">About Open Trust Group</h3>
+<div class="w3-content w3-container w3-padding-32 w3-justify" id="about">
+    <h3 class="w3-xlarge">About Open Trust Group</h3>
     <p>
         This is a nonprofit organization, founded in Jan 1st 2018, which focuses on open source trusted OS development.
+    </p>
+    <p>
+        Our goal is to provide software that is suitable for being incorporated in commercial products or even can
+        directly be a commercial product with slightly modification. To achieve the goal, the software should meet
+        the following requirements:
+    </p>
+    <ul>
+        <li>Source code is fully opened</li>
+        <li>With corporate-friendly licenses (no need to open source and no patent issue)</li>
+        <li>Test framework</li>
+        <li>Build system</li>
+        <li>Can be developed on virtual platform (e.g. QEMU)</li>
+        <li>Easy to port to real hardware platform (of the same CPU arch.)</li>
+        <li>Good software quality (It's hard to quantified but we always try the best to improve it)</li>
+        <li>Flexible software architecture for vendor to do customization</li>
+        <li>Providing SDK and DDK for apps and drivers development</li>
+        <li>Providing user guide and design documents</li>
+    </ul>
+    <p>
+        Our software is not for competing with the commercial products. Instead, we hope our software
+        can help to improve the software quality and the software development process of the commercial products.
+    </p>
+    <p>
+        Improving software development process means that we can also improve the product's quality and can work
+        smarter than before. Thus, we will have more time to do other important things, for example, to develop
+        professional skills, to read favorite books and the most important is to have dinner with your family.
     </p>
 </div>
 
