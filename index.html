@@ -35,10 +35,10 @@
     <div class="w3-bar w3-green">
         <a href="#home" class="w3-bar-item w3-button w3-hover-black"><i class="fas fa-home"></i> HOME</a>
         <!-- Temp. Disabled
-        <a href="#about" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-user"></i> ABOUT</a>
         <a href="#gzos" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-lock"></i> GzOS</a>
         <a href="#contribute" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-code-branch"></i> CONTRIBUTION</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-envelope"></i> CONTACT</a>
+        <a href="#about" class="w3-bar-item w3-button w3-hover-black w3-hide-small"><i class="fas fa-user"></i> ABOUT</a>
         -->
         <a href="https://github.com/OpenTrustGroup" class="w3-bar-item w3-button w3-hover-black"><i class="fab fa-github"></i></a>
         <!-- Temp. Disabled
@@ -51,10 +51,10 @@
     <!-- for mobile -->
     <!-- Temp. Disabled
     <div id="drop_down_menu" class="w3-bar-block w3-green w3-hide w3-hide-large w3-hide-medium">
-        <a href="#about" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-user"></i> ABOUT</a>
         <a href="#gzos" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-lock"></i> GzOS</a>
         <a href="#contribute" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-code-branch"></i> CONTRIBUTION</a>
         <a href="#contact" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-envelope"></i> CONTACT</a>
+        <a href="#about" class="w3-bar-item w3-button w3-hover-black" onclick="toggle_drop_down_menu()"><i class="fas fa-user"></i> ABOUT</a>
         <a href="https://github.com/OpenTrustGroup" class="w3-bar-item w3-button w3-hover-black"><i class="fab fa-github"> GITHUB</i></a>
     </div>
     -->
@@ -67,16 +67,8 @@
     </h3>
 </div>
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container" id="about">
-    <h3 class="w3-xxlarge">About Open Trust Group</h3>
-    <p>
-        This is a nonprofit organization, founded in Jan 1st 2018, which focuses on open source trusted OS development.
-    </p>
-</div>
-
 <!-- Container (GzOS Section) -->
-<div class="w3-content w3-container w3-padding-64" id="gzos">
+<div class="w3-content w3-container" id="gzos">
     <h3 class="w3-xxlarge">GzOS : Microkernel-Based Trusted OS</h3>
     <div class="">
         <p>
@@ -88,15 +80,15 @@
 </div>
 
 <!-- GzOS demo pictures -->
-<div class="w3-content w3-cell-row">
-<div class="w3-container w3-cell">
-    <img src="img/gzos_qemu.gif" style="width:100%;cursor:pointer"
-         onclick="onClick(this)" class="w3-hover-opacity">
-</div>
-<div class="w3-container w3-cell">
-    <img src="img/gzos_test.gif" style="width:100%;cursor:pointer"
-         onclick="onClick(this)" class="w3-hover-opacity">
-</div>
+<div class="w3-content w3-cell-row w3-padding-32">
+    <div class="w3-container w3-cell">
+        <img src="img/gzos_qemu.gif" style="width:100%;cursor:pointer"
+             onclick="onClick(this)" class="w3-hover-opacity">
+    </div>
+    <div class="w3-container w3-cell">
+        <img src="img/gzos_test.gif" style="width:100%;cursor:pointer"
+             onclick="onClick(this)" class="w3-hover-opacity">
+    </div>
 </div>
 
 <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
@@ -121,7 +113,7 @@
     <p>For now, GzOS project is in very early development stage and is still not ready for accepting patches regarding new features
     or major changes from new contributors.</p>
 
-    <p>If you would like to report issue to us, please report issues on corresponding git projects of
+    <p>If you would like to report issue to us, please open an issue on corresponding git projects via
     <a href="https://github.com/OpenTrustGroup">OTG Github</a>, thank you.</p>
 
     <p><b>NOTE:</b> The code in OTG Github is READ-ONLY, please do not submit pull request to OTG Github</p>
@@ -132,6 +124,14 @@
     <h3 class="w3-xxlarge">Contact Us</h3>
     <p>If you are interested in our project and would like to talk to us, please mail
         to <b>opentrust.tw@gmail.com</b></p>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h3 class="w3-xxlarge">About Open Trust Group</h3>
+    <p>
+        This is a nonprofit organization, founded in Jan 1st 2018, which focuses on open source trusted OS development.
+    </p>
 </div>
 
 <!-- Footer -->
